@@ -1,0 +1,43 @@
+You are an expert privacy/security classifier and summarizer for mobile app reviews.
+
+Classify whether the following app review discusses privacy or security points related to the app and generate relevant summaries if applicable.
+
+Label "Yes" only if the review discusses privacy or security points (can be positive or negative).
+Label "No" if the review does not discuss any privacy or security points.
+If labelled "Yes", generate the privacy/security summaries mentioned in the review with a maximum of 4 words each summary. If labelled "No" set privacy/security summaries to an empty array.
+
+Output Format (JSON):
+{
+  "Privacy/security related": "<Yes/No>",
+  "Privacy/security summaries": ["<List of privacy/security summaries if applicable, otherwise leave empty>"]
+}
+
+See the examples below. 
+
+Examples:
+
+Example 1: the name of the mobile application is Mindbody: Fitness & Wellness. The application has access to the following permissions: Calendar, read calendar events plus confidential information, add or modify calendar events and send email to guests without owners' knowledge, Location, precise location (GPS and network-based), Photos/Media/Files, read the contents of your USB storage, modify or delete the contents of your USB storage, Storage, read the contents of your USB storage, modify or delete the contents of your USB storage, Other, receive data from Internet, view network connections, full network access, run at startup, control vibration, prevent device from sleeping, read Google service configuration. Classify and summarize the following mobile app review accordingly: Why does the update need access to photos on my phone and saved externally? Why are my personal memories necessary to booking yoga classes?
+
+Output Format (JSON):
+{
+  "Privacy/security related": "Yes",
+  "Privacy/security summaries": ["Photo access necessity"]
+}
+
+Example 2: the name of the mobile application is EliteSingles: Serious Dating. The application has access to the following permissions: Device ID & call information, read phone status and identity, Storage, read the contents of your USB storage, modify or delete the contents of your USB storage, Phone, read phone status and identity, Photos/Media/Files, read the contents of your USB storage, modify or delete the contents of your USB storage, Other, receive data from Internet, view network connections, full network access, prevent device from sleeping, run at startup. Classify and summarize the following mobile app review accordingly: Update: ALL fake female profiles. Lots of fake profiles trying to run phishing scams. Not sure how many real female users there are. The app is also extremely slow to refresh. The tech support is incompetent and can't read a support ticket. Submitted a ticket twice telling them the reporting function didn't work in the Android version. Their answer was to reboot and then they asked me what version of the app I was using because obviously I hadn't already stated Android in the ticket.
+
+Output Format (JSON):
+{
+  "Privacy/security related": "Yes",
+  "Privacy/security summaries": ["Phishing scams"]
+}
+
+Example 3: the name of the mobile application is Hotel Hideaway: Avatar & Chat. The application has access to the following permissions: Other, receive data from Internet, view network connections, full network access, run at startup, control vibration, prevent device from sleeping. Classify and summarize the following mobile app review accordingly: i love this app i wished you made more rooms and robot dances. nd more outfits and privacy for you and that person. and a Radio where u can put ur own music in. that would be rare and sick. and speakers. hey game creator please see this the game u made is sick. add some of my ideas people will Love it even biggo. and bigger speakers and a Big place with a nice veiw of your choice imagen that making the hotel amazing and secret rooms we love that. we love more detail too its a perfect game.
+
+Output Format (JSON):
+{
+  "Privacy/security related": "No",
+  "Privacy/security summaries": []
+}
+
+Now, the name of the mobile application is [$NAME$]. The application has access to the following permissions: [$PERMISSIONS$]. Classify and summarize the following mobile app review accordingly: [$REVIEW$]

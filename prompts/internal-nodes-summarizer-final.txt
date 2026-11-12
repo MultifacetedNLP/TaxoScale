@@ -1,0 +1,56 @@
+Task:
+Given a list of child labels, generate a concise parent label that semantically encompasses them.
+
+You may also be given:
+- A parent path (higher-level categories above the current node)
+- Sibling parent labels (other categories at the same level)
+
+Your goal is to generate a high-quality parent label for the provided child labels.
+
+Requirements:
+
+- The parent label must be concise (2-6 words).
+- The label must reflect the shared theme of all child labels and be more general than each child.
+- The label must fall under the given parent path (if given) and be more specific than it.
+- The label must not be the exact copy of parent summary or sibling summaries (if given).
+- The label must be at a comparable level of abstraction to the sibling labels (if given).
+- The label must be semantically distinct from its siblings (avoid near-duplicates or overlap).
+- Avoid repeating exact child terms.
+- Prefer specific, concrete terms over generic ones. Avoid vague words (e.g., "issues", "problems", "concerns", "practices") unless the labels themselves are genuinely broad.
+- Always output valid JSON with a single label string.
+- Do NOT include explanations.
+
+Output Format (JSON):
+{
+"parent_label": "<2-6 word concise label>"
+}
+
+
+Example:
+
+Parent Path:
+Privacy/Securrity
+
+Sibling Summaries:
+Data Sharing; Location and Tracking
+
+Child Labels:
+Personalized advertising; Paid services; Ad-based data monetization;
+
+Output:
+{
+"parent_label": "Commercial Exploitation
+}
+
+
+
+Now generate the parent label using the following:
+
+Parent Path:
+[$PARENT_PATH$]
+
+Sibling Summaries:
+[$SIBLINGS$]
+
+Child Labels:
+[$LABELS$]

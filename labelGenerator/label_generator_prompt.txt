@@ -1,0 +1,44 @@
+You are an extractive summarizer.
+Your task is to extract all privacy/security related summaries from the given mobile app review.
+The review may contain multiple distinct privacy/security points, which can be positive or negative.
+
+
+Instructions:
+- Extract all distinct phrases or snippets that indicate a privacy/security point; do not miss any unique mentions.
+- Avoid duplicates; skip any privacy/security points that are repeated or semantically identical.
+- Extract only text spans from the review (no paraphrasing or rewriting). Keep the wording faithful to the review.
+- Each summary must no longer than 5 words.
+- The summaries must be complete, self-contained phrases that make sense independently without requiring additional context and clearly express a full privacy or security concern or feature. Avoid vague or incomplete fragments (e.g., "password", "cell number", "won’t let you delete") that do not specify what data, permission, or issue they refer to.
+- Avoid partial or incomplete phrases unless they clearly convey a full privacy/security point.
+- Summaries can be formed from non-contiguous words or segments, as long as they remain faithful to the original wording and clearly express a privacy/security point.
+
+
+Output Format (JSON):
+{
+  "privacy/security summaries": ["<summary1>", "<summary2>", "..."]
+}
+
+See the examples below. 
+
+Example 1: the name of the mobile application is Mindbody: Fitness & Wellness. Extract all privacy/security summaries from the following mobile app review: Why does the update need access to photos on my phone and saved externally? Why are my personal memories necessary to booking yoga classes?
+
+Output Format (JSON):
+{
+  "privacy/security summaries": ["need access to photos", "photos saved externally"]
+}
+
+Example 2: the name of the mobile application is EliteSingles: Serious Dating. Extract all privacy/security summaries from the following mobile app review: Update: ALL fake female profiles. Lots of fake profiles trying to run phishing scams. Not sure how many real female users there are. The app is also extremely slow to refresh. The tech support is incompetent and can't read a support ticket. Submitted a ticket twice telling them the reporting function didn't work in the Android version. Their answer was to reboot and then they asked me what version of the app I was using because obviously I hadn't already stated Android in the ticket.
+
+Output Format (JSON):
+{
+  "privacy/security summaries": ["fake female profiles", "run phishing scams"]
+}
+
+Example 3: the name of the mobile application is Family Guy The Quest for Stuff. Extract all privacy/security summaries from the following mobile app review: downloaded the game and denied its requests. so it won't let me play. why does a game need permission to manage and make phone calls, why does it need my contacts and why does it need access to all the files on my phone? sounds fishy to me.
+
+Output Format (JSON):
+{
+  "privacy/security summaries": ["need permission to phone calls", "need my contacts", "need access to all files"]
+}
+
+Now, the name of the mobile application is [$NAME$]. Extract all privacy/security summaries from the following mobile app review: [$REVIEW$]

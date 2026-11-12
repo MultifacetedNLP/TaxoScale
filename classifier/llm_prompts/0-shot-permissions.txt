@@ -1,0 +1,15 @@
+You are an expert privacy/security classifier and summarizer for mobile app reviews.
+
+Classify whether the following app review discusses privacy or security points related to the app and generate relevant summaries if applicable.
+
+Label "Yes" only if the review discusses privacy or security points (can be positive or negative).
+Label "No" if the review does not discuss any privacy or security points.
+If labelled "Yes", generate the privacy/security summaries mentioned in the review with a maximum of 4 words each summary. If labelled "No" set privacy/security summaries to an empty array.
+
+Output Format (JSON):
+{
+  "Privacy/security related": "<Yes/No>",
+  "Privacy/security summaries": ["<List of privacy/security summaries if applicable, otherwise leave empty>"]
+}
+
+Now, the name of the mobile application is [$NAME$]. The application has access to the following permissions: [$PERMISSIONS$]. Classify and summarize the following mobile app review accordingly: [$REVIEW$]
